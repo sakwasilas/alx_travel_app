@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',  # Add REST framework
+    'corsheaders',     # Add CORS headers
+    'drf_yasg',        # Add Swagger documentation
+    'listings', 
 ]
 
 MIDDLEWARE = [
@@ -121,3 +125,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basicAuth': {
+            'type': 'basic'
+        }
+    }
+}
+# database connection 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'milestone_project_db',
+        'USER': 'silas',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
